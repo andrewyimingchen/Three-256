@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Three-256</title>
+    <link>https://andrewyimingchen.github.io/Three-256/</link>
+    <atom:link href="https://andrewyimingchen.github.io/Three-256/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Three-256
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Machine Learning on MovieLens</title>
+      <dc:creator>Andrew Chen</dc:creator>
+      <link>https://andrewyimingchen.github.io/Three-256/posts/2021-04-01-movielens</link>
+      <description>A ML project on MovieLens data.</description>
+      <category>rstats</category>
+      <category>Machine Learning</category>
+      <guid>https://andrewyimingchen.github.io/Three-256/posts/2021-04-01-movielens</guid>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://andrewyimingchen.github.io/Three-256/posts/2021-04-01-movielens/movielens_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Biden vs Trump</title>
+      <dc:creator>Andrew Chen</dc:creator>
+      <link>https://andrewyimingchen.github.io/Three-256/posts/twitter</link>
+      <description>A text analysis on Biden's and Trump's Twitter account.</description>
+      <category>text analysis</category>
+      <category>twitter analysis</category>
+      <category>rstats</category>
+      <category>Machine Learning</category>
+      <guid>https://andrewyimingchen.github.io/Three-256/posts/twitter</guid>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -3,17 +3,17 @@
     {
       "path": "about.html",
       "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "description": "A place of my own.",
       "author": [],
-      "contents": "\n\n\n\n",
-      "last_modified": "2021-04-01T21:05:34-07:00"
+      "contents": "\nHi, welcome to my blog, my name is Andrew Chen, I analyze data that intrigues me. I started off majoring in Economics as an undergraduate and later pursued a Master’s degree in Development Economics, but I know nothing about it.\nWhere to find me:\nandrew-chen\nandrew-chen\n\n\n\n",
+      "last_modified": "2021-04-02T02:00:58-07:00"
     },
     {
       "path": "index.html",
-      "title": "Three-256",
+      "title": "",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-04-02T01:47:51-07:00"
+      "last_modified": "2021-04-02T02:00:53-07:00"
     }
   ],
   "collections": ["posts/posts.json"]

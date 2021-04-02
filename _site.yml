@@ -3,6 +3,21 @@ title: "Three-256"
 description: |
   Three-256
 output_dir: "docs"
+theme: theme.css
+base_url: https://andrewyimingchen.github.io/Three-256/
+repository_url: https://github.com/andrewyimingchen/Three-256
+creative_commons: CC BY
+twitter:
+  site: "@ACSPQRTW"
+linkedin:
+  site: https://www.linkedin.com/in/andrewyimingchen/
+collections:
+  posts:
+    categories: TRUE
+    categories_metadata: TRUE
+    authors_metadata: TRUE
+    disqus: theblog
+    share: [twitter, linkedin]
 navbar:
   right:
     - text: "Home"

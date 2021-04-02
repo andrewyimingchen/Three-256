@@ -1,9 +1,15 @@
 ---
 title: "About this blog"
-description: |
-  Some additional details about the blog
+description: A place of my own.
 ---
-
+Hi, welcome to my blog, my name is Andrew Chen, I analyze data that intrigues me. I started off majoring in Economics as an undergraduate and later pursued a Master's degree in Development Economics, but I know nothing about it.  
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(fontawesome)
 ```
+
+Where to find me:
+
+  - `r fontawesome::fa("twitter")` [`andrew-chen`](https://twitter.com/ACSPQRTW)
+  - `r fontawesome::fa("linkedin")` [`andrew-chen`](https://www.linkedin.com/in/andrewyimingchen/)
+  
