@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Machine Learning on MovieLens</title>
+  
+  <meta property="description" itemprop="description" content="A ML project on MovieLens data."/>
+  
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-03-30"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-03-30"/>
+  <meta name="article:author" content="Andrew Chen"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Machine Learning on MovieLens"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="A ML project on MovieLens data."/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Machine Learning on MovieLens"/>
+  <meta property="twitter:description" content="A ML project on MovieLens data."/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","output"]}},"value":[{"type":"character","attributes":{},"value":["Machine Learning on MovieLens"]},{"type":"character","attributes":{},"value":["A ML project on MovieLens data.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Andrew Chen"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/andrewyimingchen/"]}]}]},{"type":"character","attributes":{},"value":["03-30-2021"]},{"type":"character","attributes":{},"value":["rstats","Machine Learning"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["movielens_files/figure-html5/unnamed-chunk-16-1.png","movielens_files/figure-html5/unnamed-chunk-19-1.png","movielens_files/figure-html5/unnamed-chunk-2-1.png","movielens_files/figure-html5/unnamed-chunk-3-1.png","movielens_files/figure-html5/unnamed-chunk-4-1.png","movielens_files/figure-html5/unnamed-chunk-5-1.png","movielens_files/figure-html5/unnamed-chunk-6-1.png","movielens_files/figure-html5/unnamed-chunk-7-1.png","movielens_files/figure-html5/unnamed-chunk-8-1.png"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+  
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+  
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+  
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+  
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+  
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+  
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  /* Tweak code blocks */
+  
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+  
+  d-article div.sourceCode {
+    background-color: white;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  d-article pre a {
+    border-bottom: none;
+  }
+  
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+  
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+  
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+  
+  d-article pre {
+    font-size: 14px;
+  }
+  
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for d-contents */
+  
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+  
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+  
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+  
+  .d-contents li {
+    list-style-type: none
+  }
+  
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+  
+  .d-contents ul {
+    padding-left: 1em
+  }
+  
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+  
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+  
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+  
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+  
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+  
+  
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+  
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+  
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  /* Citations */
+  
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+  
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+  
+  /* Citation hover box */
+  
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+  
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Include appendix styles here so they can be overridden */
+  
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+  
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+  
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+  
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+  
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+  
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+  
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  d-appendix > * {
+    grid-column: text;
+  }
+  
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+  
+  /* Include footnote styles here so they can be overridden */
+  
+  d-footnote-list {
+    contain: layout style;
+  }
+  
+  d-footnote-list > * {
+    grid-column: text;
+  }
+  
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+  
+  
+  
+  /* Anchor.js */
+  
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+  
+  /* Styles for posts lists (not auto-injected) */
+  
+  
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+  
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+  
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+  
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+  
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+  
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+  
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+  
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+  
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+  
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+  
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+  
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+  
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+  
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .posts-list img {
+    opacity: 1;
+  }
+  
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+  
+  .posts-more {
+    clear: both;
+  }
+  
+  
+  .posts-sidebar {
+    font-size: 16px;
+  }
+  
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+  
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+  
+  .categories li>a {
+    border-bottom: none;
+  }
+  
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+  
+  .categories .active {
+    font-weight: 600;
+  }
+  
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+  
+  
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+  
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+  
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-contents').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="movielens_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="movielens_files/popper-2.6.0/popper.min.js"></script>
+  <link href="movielens_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="movielens_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="movielens_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="movielens_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="movielens_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="movielens_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="movielens_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Machine Learning on MovieLens","description":"A ML project on MovieLens data.","authors":[{"author":"Andrew Chen","authorURL":"https://www.linkedin.com/in/andrewyimingchen/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-03-30T00:00:00.000+00:00","citationText":"Chen, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Machine Learning on MovieLens</h1>
+<!--radix_placeholder_categories-->
+<div class="dt-tags">
+<div class="dt=tag">rstats</div>
+<div class="dt=tag">Machine Learning</div>
+</div>
+<!--/radix_placeholder_categories-->
+<p><p>A ML project on MovieLens data.</p></p>
+</div>
+
+<div class="d-byline">
+  Andrew Chen <a href="https://www.linkedin.com/in/andrewyimingchen/" class="uri">https://www.linkedin.com/in/andrewyimingchen/</a> 
+  
+<br/>03-30-2021
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#exploratory-data-analysis">Exploratory data analysis</a></li>
+<li><a href="#modeling">Modeling</a><ul>
+<li><a href="#loss-function">Loss function</a></li>
+</ul></li>
+<li><a href="#validation-set">Validation set</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</nav>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>Recommendation system is widely used in many different commercial applications, such as dating website, music streaming platform, or e-commerce website. The objective of the recommendation system is to predict the what the users want based on their preferences and others’ previous likings on the platform.</p>
+<p>In this project, I will use movielens to build a recommendation system using machine learning techniques to get the best possible residual mean square error (RMSE), which the goal is to reach RMSE &lt; 0.8649. The project will show three analytical methods, basic linear regression, regularization, and matrix factorization.</p>
+<p>This paper will present in this order, Exploratory data analysis, Modeling, Validation set, and Conclusion,</p>
+<h2 id="exploratory-data-analysis">Exploratory data analysis</h2>
+<h4 id="movielens-dataset">1. Movielens dataset</h4>
+<p>The movielens dataset is an initiative created by the University of Minnesota GroupLens lab to study recommendation system. The website allows users to rate movies that is listed in the movielens website, which the complete dataset has about 26000000 ratings (from 2017 update). For this project, the dataset consists of total 10000054 observations and 6 variables, UserId, movieId, rating, timestamp, title, and genres.</p>
+<h4 id="data-setup">2. Data setup</h4>
+<p>First of all, download the file and use fread() to read the rating.dat, then vectorized the string in movie data.dat by str_split_fixed() and readLines(). Later, combine both ratings and movies into movielens as a dataframe.</p>
+<p>After all the process above, movielens dataset is ready to separate into two sets by 90% and 10%, edx for training and validation for testing. The edx is further split into 2 sets by 80% and 20%, train_data and testing_data, the purpose here is to train the model, so it reach the target RMSE with the smaller set of edx then the model will be validate against the validation set.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ratings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>"::"</span>, <span class='st'>"\t"</span>, <span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='st'>"/Users/andrewchen/Desktop/R/Data_Science/Harvard_edX/Git_project/ml-10M100K/ratings.dat"</span><span class='op'>)</span><span class='op'>)</span>,
+                 col.names <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"userId"</span>, <span class='st'>"movieId"</span>, <span class='st'>"rating"</span>, <span class='st'>"timestamp"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>movies</span> <span class='op'>&lt;-</span> <span class='fu'>str_split_fixed</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/readLines.html'>readLines</a></span><span class='op'>(</span><span class='st'>"/Users/andrewchen/Desktop/R/Data_Science/Harvard_edX/Git_project/ml-10M100K/movies.dat"</span><span class='op'>)</span>, <span class='st'>"\\::"</span>, <span class='fl'>3</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span><span class='op'>(</span><span class='va'>movies</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"movieId"</span>, <span class='st'>"title"</span>, <span class='st'>"genres"</span><span class='op'>)</span>
+
+<span class='co'># if using R 4.0 or later:</span>
+<span class='va'>movies</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>movies</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>movieId <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span>,
+                                           title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>title</span><span class='op'>)</span>,
+                                           genres <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>genres</span><span class='op'>)</span><span class='op'>)</span>
+
+
+<span class='va'>movielens</span> <span class='op'>&lt;-</span> <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>ratings</span>, <span class='va'>movies</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span>
+<span class='co'># Validation set will be 10% of MovieLens data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span>, sample.kind<span class='op'>=</span><span class='st'>"Rounding"</span><span class='op'>)</span> <span class='co'># if using R 3.5 or earlier, use `set.seed(1)`</span>
+<span class='va'>test_index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/createDataPartition.html'>createDataPartition</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>movielens</span><span class='op'>$</span><span class='va'>rating</span>, times <span class='op'>=</span> <span class='fl'>1</span>, p <span class='op'>=</span> <span class='fl'>0.1</span>, list <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>edx</span> <span class='op'>&lt;-</span> <span class='va'>movielens</span><span class='op'>[</span><span class='op'>-</span><span class='va'>test_index</span>,<span class='op'>]</span>
+<span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='va'>movielens</span><span class='op'>[</span><span class='va'>test_index</span>,<span class='op'>]</span>
+
+<span class='co'># Make sure userId and movieId in validation set are also in edx set</span>
+<span class='va'>validation</span> <span class='op'>&lt;-</span> <span class='va'>temp</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>semi_join</span><span class='op'>(</span><span class='va'>edx</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>semi_join</span><span class='op'>(</span><span class='va'>edx</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span>
+
+<span class='co'># Add rows removed from validation set back into edx set</span>
+<span class='va'>removed</span> <span class='op'>&lt;-</span> <span class='fu'>anti_join</span><span class='op'>(</span><span class='va'>temp</span>, <span class='va'>validation</span><span class='op'>)</span>
+<span class='va'>edx</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html'>rbind</a></span><span class='op'>(</span><span class='va'>edx</span>, <span class='va'>removed</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>dl</span>, <span class='va'>ratings</span>, <span class='va'>movies</span>, <span class='va'>test_index</span>, <span class='va'>temp</span>, <span class='va'>movielens</span>, <span class='va'>removed</span><span class='op'>)</span>
+
+<span class='co'># My own training/testing set</span>
+<span class='co'># train and test data </span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span>, sample.kind<span class='op'>=</span><span class='st'>"Rounding"</span><span class='op'>)</span>
+<span class='va'>test_index</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/createDataPartition.html'>createDataPartition</a></span><span class='op'>(</span>y <span class='op'>=</span> <span class='va'>edx</span><span class='op'>$</span><span class='va'>rating</span>, 
+                                  times <span class='op'>=</span> <span class='fl'>1</span>, p <span class='op'>=</span> <span class='fl'>0.2</span>, list <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='va'>train_data</span> <span class='op'>&lt;-</span> <span class='va'>edx</span><span class='op'>[</span><span class='op'>-</span><span class='va'>test_index</span>,<span class='op'>]</span>
+<span class='va'>temp</span> <span class='op'>&lt;-</span> <span class='va'>edx</span><span class='op'>[</span><span class='va'>test_index</span>,<span class='op'>]</span>
+
+<span class='co'># Make sure userId and movieId in test set are also in train set</span>
+<span class='va'>test_data</span> <span class='op'>&lt;-</span> <span class='va'>temp</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>semi_join</span><span class='op'>(</span><span class='va'>train_data</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>semi_join</span><span class='op'>(</span><span class='va'>train_data</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span>
+
+<span class='co'># Add rows removed from test set back into train set</span>
+<span class='va'>removed</span> <span class='op'>&lt;-</span> <span class='fu'>anti_join</span><span class='op'>(</span><span class='va'>temp</span>, <span class='va'>test_data</span><span class='op'>)</span>
+<span class='va'>train_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html'>rbind</a></span><span class='op'>(</span><span class='va'>train_data</span>, <span class='va'>removed</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/rm.html'>rm</a></span><span class='op'>(</span><span class='va'>test_index</span>, <span class='va'>temp</span>, <span class='va'>removed</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h4 id="exploration">3. Exploration</h4>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>Classes &#39;data.table&#39; and &#39;data.frame&#39;:  9000055 obs. of  6 variables:
+ $ userId   : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ movieId  : num  122 185 292 316 329 355 356 362 364 370 ...
+ $ rating   : num  5 5 5 5 5 5 5 5 5 5 ...
+ $ timestamp: int  838985046 838983525 838983421 838983392 838983392 838984474 838983653 838984885 838983707 838984596 ...
+ $ title    : chr  &quot;Boomerang (1992)&quot; &quot;Net, The (1995)&quot; &quot;Outbreak (1995)&quot; &quot;Stargate (1994)&quot; ...
+ $ genres   : chr  &quot;Comedy|Romance&quot; &quot;Action|Crime|Thriller&quot; &quot;Action|Drama|Sci-Fi|Thriller&quot; &quot;Action|Adventure|Sci-Fi&quot; ...
+ - attr(*, &quot;.internal.selfref&quot;)=&lt;externalptr&gt; </code></pre>
+<pre><code>   userId movieId rating timestamp                         title
+1:      1     122      5 838985046              Boomerang (1992)
+2:      1     185      5 838983525               Net, The (1995)
+3:      1     292      5 838983421               Outbreak (1995)
+4:      1     316      5 838983392               Stargate (1994)
+5:      1     329      5 838983392 Star Trek: Generations (1994)
+6:      1     355      5 838984474       Flintstones, The (1994)
+                          genres
+1:                Comedy|Romance
+2:         Action|Crime|Thriller
+3:  Action|Drama|Sci-Fi|Thriller
+4:       Action|Adventure|Sci-Fi
+5: Action|Adventure|Drama|Sci-Fi
+6:       Children|Comedy|Fantasy</code></pre>
+<pre><code>     userId         movieId          rating        timestamp        
+ Min.   :    1   Min.   :    1   Min.   :0.500   Min.   :7.897e+08  
+ 1st Qu.:18124   1st Qu.:  648   1st Qu.:3.000   1st Qu.:9.468e+08  
+ Median :35738   Median : 1834   Median :4.000   Median :1.035e+09  
+ Mean   :35870   Mean   : 4122   Mean   :3.512   Mean   :1.033e+09  
+ 3rd Qu.:53607   3rd Qu.: 3626   3rd Qu.:4.000   3rd Qu.:1.127e+09  
+ Max.   :71567   Max.   :65133   Max.   :5.000   Max.   :1.231e+09  
+    title              genres         
+ Length:9000055     Length:9000055    
+ Class :character   Class :character  
+ Mode  :character   Mode  :character  
+                                      
+                                      
+                                      </code></pre>
+</div>
+<h5 id="count-of-rating">3.1 Count of rating</h5>
+<p>From the bar chart below, you see that most ratings are located at 3 and 4.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_bar</span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.5</span>,<span class='fl'>5</span>, <span class='fl'>0.5</span><span class='op'>)</span>,
+                   labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0.5</span>,<span class='fl'>5</span>, <span class='fl'>0.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Movie ratings"</span>, y <span class='op'>=</span> <span class='st'>"Number of rating"</span>, x <span class='op'>=</span> <span class='st'>"Rating"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<h5 id="distribution-of-average-movies-rating">3.2 Distribution of average movie’s rating</h5>
+<p>The graph below show that the average movie’s rating is more or less natural distributed with a left skewed, which means the mean &lt; median &lt; mode.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>movieId</span>, <span class='va'>rating</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>score <span class='op'>=</span> <span class='va'>rating</span><span class='op'>*</span><span class='va'>n</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>summarise</span><span class='op'>(</span>avg <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>score</span><span class='op'>)</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>avg</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of average movie's ratings"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Number of average rating"</span>, x <span class='op'>=</span> <span class='st'>"Average rating"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins <span class='op'>=</span> <span class='fl'>100</span>, fill <span class='op'>=</span> <span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<h5 id="distribution-of-movies">3.3 Distribution of movies</h5>
+<p>The first graph below show that not all movies are getting the equal amount of ratings, it’s clearly that some movies get a lot more rating than others. From the list below show that top 15 rated movies are all blockbusters and the least 15 rated movies are more obscure than finding a needle in a haystack.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## some movies get rated more than others </span>
+<span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins <span class='op'>=</span> <span class='fl'>100</span>, fill <span class='op'>=</span> <span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>scale_x_log10</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of number of movie's ratings"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Number of ratings"</span>, x <span class='op'>=</span> <span class='st'>"Individual movie"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="movielens_files/figure-html5/unnamed-chunk-4-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>movieId</span>, <span class='va'>title</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>top_n</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>    movieId
+ 1:     296
+ 2:     356
+ 3:     593
+ 4:     480
+ 5:     318
+ 6:     110
+ 7:     457
+ 8:     589
+ 9:     260
+10:     150
+11:     592
+12:       1
+13:     780
+14:     590
+15:     527
+                                                           title
+ 1:                                          Pulp Fiction (1994)
+ 2:                                          Forrest Gump (1994)
+ 3:                             Silence of the Lambs, The (1991)
+ 4:                                         Jurassic Park (1993)
+ 5:                             Shawshank Redemption, The (1994)
+ 6:                                            Braveheart (1995)
+ 7:                                         Fugitive, The (1993)
+ 8:                            Terminator 2: Judgment Day (1991)
+ 9: Star Wars: Episode IV - A New Hope (a.k.a. Star Wars) (1977)
+10:                                             Apollo 13 (1995)
+11:                                                Batman (1989)
+12:                                             Toy Story (1995)
+13:                         Independence Day (a.k.a. ID4) (1996)
+14:                                    Dances with Wolves (1990)
+15:                                      Schindler&#39;s List (1993)
+        n
+ 1: 31362
+ 2: 31079
+ 3: 30382
+ 4: 29360
+ 5: 28015
+ 6: 26212
+ 7: 25998
+ 8: 25984
+ 9: 25672
+10: 24284
+11: 24277
+12: 23790
+13: 23449
+14: 23367
+15: 23193</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>movieId</span>, <span class='va'>title</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>top_n</span><span class='op'>(</span>n <span class='op'>=</span> <span class='op'>-</span><span class='fl'>15</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>     movieId                          title n
+  1:    3191             Quarry, The (1998) 1
+  2:    3226  Hellhounds on My Trail (1999) 1
+  3:    3234 Train Ride to Hollywood (1978) 1
+  4:    3356          Condo Painting (2000) 1
+  5:    3383               Big Fella (1937) 1
+ ---                                         
+122:   64976                   Hexed (1993) 1
+123:   65006                 Impulse (2008) 1
+124:   65011          Zona Zamfirova (2002) 1
+125:   65025         Double Dynamite (1951) 1
+126:   65027         Death Kiss, The (1933) 1</code></pre>
+</div>
+<h5 id="distribution-of-user">3.4 Distribution of user</h5>
+<p>From the graph below, it shows that number of rating per user has an natural distribution with a right skewed, which means mean &gt; median &gt; mode. This clearly shows that only a few users rate a lot of movies and majorirty don’t.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## some users rated more movies than the others, shows clearly that most </span>
+<span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>count</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_histogram</span><span class='op'>(</span>bins <span class='op'>=</span> <span class='fl'>100</span>, fill <span class='op'>=</span> <span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'>scale_x_log10</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of rating per user"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Number of rating per user"</span>, x <span class='op'>=</span> <span class='st'>"Individual user"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<h5 id="number-of-movies-rating-by-year">3.5 Number of movies rating by year</h5>
+<p>In ths graph shows that year 1996, 2000, and 2005 were all peak years for movie ratings compare to other years, but why is this the case? In the next graph I will try to explaim this phenomenon.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://lubridate.tidyverse.org'>lubridate</a></span><span class='op'>)</span>
+<span class='va'>edx</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fu'><a href='http://lubridate.tidyverse.org/reference/year.html'>year</a></span><span class='op'>(</span><span class='fu'><a href='http://lubridate.tidyverse.org/reference/as_date.html'>as_datetime</a></span><span class='op'>(</span><span class='va'>timestamp</span>, origin <span class='op'>=</span> <span class='st'>"1970-01-01"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>geom_bar</span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> 
+        <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of number of movie ratings by year"</span>, 
+             y <span class='op'>=</span> <span class='st'>"Number of Rating"</span>, x <span class='op'>=</span> <span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>From this graph below shows the distribution of number of users by year, which you can see that 1996 had a large amount of users influx follow by 2000 and 2005, but this still can’t explain that year 1996 has less number of ratings than 2000 and 2005.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>geom_bar</span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"#fc0303"</span>, col <span class='op'>=</span> <span class='st'>"black"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+  <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of number of users by year"</span>, 
+       y <span class='op'>=</span> <span class='st'>"Number of users"</span>, x <span class='op'>=</span> <span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>In order to see why, first count the number of years which give you the total number of rating that year and save it as edx_1, then left join edx_1 to edx by year, count the total number of rating for individual users in each year follow by a group by year and total to count the total number of rating in each year. Lastly, mutate a new column for average number of rating per year by using the “total” column from edx_1.</p>
+<p>From the graph below shows that year 1996 actually had one of the lower average number of rating per user, where as year 2000 and 2005 were the top 3 highest average number of rating per user.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>edx_1</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>year</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>count</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>a</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>edx_1</span>, by <span class='op'>=</span> <span class='st'>"year"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>rename</span><span class='op'>(</span>total <span class='op'>=</span> <span class='va'>n</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>count</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>userId</span>, <span class='va'>total</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>total</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+        <span class='fu'>count</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'>mutate</span><span class='op'>(</span>avgn <span class='op'>=</span> <span class='va'>total</span><span class='op'>/</span><span class='va'>n</span><span class='op'>)</span>
+<span class='va'>a</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 15 x 4
+# Groups:   year, total [15]
+    year   total     n  avgn
+   &lt;dbl&gt;   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+ 1  1995       2     1   2  
+ 2  1996  942772 16796  56.1
+ 3  1997  414101  7341  56.4
+ 4  1998  181634  2415  75.2
+ 5  1999  709893  6164 115. 
+ 6  2000 1144349  9795 117. 
+ 7  2001  683355  6754 101. 
+ 8  2002  524959  5182 101. 
+ 9  2003  619938  5626 110. 
+10  2004  691429  5656 122. 
+11  2005 1059277  8157 130. 
+12  2006  689315  6674 103. 
+13  2007  629168  6147 102. 
+14  2008  696740  7010  99.4
+15  2009   13123   598  21.9</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>a</span> <span class='op'>%&gt;%</span> <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, y <span class='op'>=</span> <span class='va'>avgn</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
+      <span class='fu'>geom_point</span><span class='op'>(</span>col <span class='op'>=</span> <span class='st'>"#fc0303"</span>, alpha<span class='op'>=</span><span class='fl'>0.5</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'>geom_line</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'>geom_text</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>avgn</span><span class='op'>)</span><span class='op'>)</span>, vjust <span class='op'>=</span> <span class='op'>-</span><span class='fl'>0.5</span>, col <span class='op'>=</span> <span class='st'>"#fc0303"</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'>scale_x_continuous</span><span class='op'>(</span>breaks<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span>, labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1995</span>,<span class='fl'>2009</span>,<span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'>labs</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Distribution of avg number of rating per users by year"</span>, 
+           y <span class='op'>=</span> <span class='st'>"Avg number of rating per users"</span>, x <span class='op'>=</span> <span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="movielens_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
+</div>
+<h2 id="modeling">Modeling</h2>
+<h3 id="loss-function">Loss function</h3>
+<p>How do one assess the accuracy of our model prediction? Residual mean square error (RMSE), but first one need to look at mean square error (MSE). <span class="math display">\[
+\mbox{MSE} = {\frac{1}{N} \sum_{u,i}^{} \left( \hat{y}_{u,i} - y_{u,i} \right)^2 }
+\]</span> MSE measures the average of the square of the difference of predicted value and real value. In this method larger error will weight more than smaller error, if the error is 1 its squared error is also 1, but if the error is 0.1 the square error is 0.01, which the former sqaure error would be 100 times larger than the latter one. Another issue is that because the unit of the error is squared so it would be hard to interpret the results, hence I use RMSE which the sqaure root will return the same unit. However, there are other ways to meausre accuracy such as mean absolute error (MAE). Here denote <span class="math inline">\({y}_{u,i}\)</span> as the rating of movie<span class="math inline">\(i\)</span> by user<span class="math inline">\(u\)</span>, <span class="math inline">\(\hat{y}_{u,i}\)</span> as the prediction of the movie ratings, and <span class="math inline">\(N\)</span> as total combination movie<span class="math inline">\(i\)</span> and user<span class="math inline">\(u\)</span>.</p>
+<p><span class="math display">\[
+\mbox{RMSE} = \sqrt{\frac{1}{N} \sum_{u,i}^{} \left( \hat{y}_{u,i} - y_{u,i} \right)^2 }
+\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h4 id="base-model">1.1 Base model</h4>
+<p>Since I am trying to predict movie ratings, what would be the a good initial guess for all the ratings in the dataset? I could pick any number, but I am trying to get the lowest RMSE and the average would minimize RMSE, hence the base model is the average of all movie ratings in traing set (the observed value) <span class="math inline">\(\mu\)</span> + the independent error <span class="math inline">\(\varepsilon\)</span>.</p>
+<p><span class="math display">\[
+Y_{u,i} = \mu + \varepsilon_{u,i}
+\]</span></p>
+<h4 id="movie-effect">1.2 Movie effect</h4>
+<p>From the data exploration in section 3, it shows that some movies are highly rated some not, this variability can be explain by the mean difference of observed rating <span class="math inline">\(Y_{u,i}\)</span> and average rating of all movies <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="math display">\[
+b_i = {\frac{1}{N} \sum_{i}^{}(Y_{u,i} - \mu)}
+\]</span></p>
+<p>From the above <span class="math inline">\(b_i\)</span>, then add it back to the base model.</p>
+<p><span class="math display">\[
+Y_{u,i} = \mu + b_i + \varepsilon_{u,i}
+\]</span></p>
+<h4 id="user-effect">1.3 User effect</h4>
+<p>Similar to movie effect, user variable also show that some give a lot of high rating and some not, this variability can be eplain by the mean difference of observed rating <span class="math inline">\(Y_{u,i}\)</span>, average rating of all movies <span class="math inline">\(\mu\)</span>, and movie effect <span class="math inline">\(b_i\)</span>. <span class="math display">\[
+b_u = {\frac{1}{N} \sum_{i}^{}(Y_{u,i} - \mu - b_i)}
+\]</span></p>
+<p>From the above <span class="math inline">\(b_u\)</span>, then add it back the movie effect model.</p>
+<p><span class="math display">\[ 
+Y_{u,i} = \mu + b_i + b_u + \varepsilon_{u,i}
+\]</span></p>
+<h4 id="result">1.4 Result</h4>
+<p>Now the model is ready to be tested, let’s see how it perform. From the rmse dataframe below shows that the RMSE of the base model is 1.06, with movie effect it improves to 0.94 and with user effect it further improve RMSE to 0.87. The linear model improve RMSE about 18%, but this is still not enough to reach the target RMSE &lt; 0.8649, so how do one improve from here?</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># First Model: Overall average rating </span>
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>train_data</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+<span class='va'>rmse</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base Model"</span>, 
+               RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>mu</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># Second model: movie effect </span>
+<span class='va'>movie_avgs</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> <span class='va'>test_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span><span class='va'>b_i</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>rmse</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>rmse</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base + b_i"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># Third model: user effect </span>
+<span class='va'>user_avgs</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span> <span class='op'>-</span> <span class='va'>b_i</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> <span class='va'>test_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>user_avgs</span>, by<span class='op'>=</span><span class='st'>'userId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+
+<span class='va'>rmse</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>rmse</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base + b_i + b_u"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>rmse</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.059904
+2       Base + b_i 0.943743
+3 Base + b_i + b_u 0.865932</code></pre>
+</div>
+<h4 id="regularization">1.4 Regularization</h4>
+<h5 id="residuals">1.4.1 Residuals</h5>
+<p>Before getting into regularization, let’s check what is the top mistake rating the linear model predicted. “From Justin to Kelly” a rather obscure movie getting a 5 rating with a large positive residual indicates that this user rated this movie a lot higher than others, where as “The Shawshank Redemption” a well known critically acclaimed movie getting a 0.5 rating with a small negative residual show that this user rated this movie a lot lower than others.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>    userId movieId rating  timestamp                            title
+ 1:  26423    6483    5.0 1097653302      From Justin to Kelly (2003)
+ 2:   2507     318    0.5 1111809069 Shawshank Redemption, The (1994)
+ 3:   7708     318    0.5 1136745552 Shawshank Redemption, The (1994)
+ 4:   9568     318    0.5 1165693345 Shawshank Redemption, The (1994)
+ 5:   9975     318    0.5 1165764304 Shawshank Redemption, The (1994)
+ 6:  10749     318    0.5 1137685578 Shawshank Redemption, The (1994)
+ 7:  13496     318    0.5 1167308184 Shawshank Redemption, The (1994)
+ 8:  24312     318    0.5 1096667629 Shawshank Redemption, The (1994)
+ 9:  25239     318    0.5 1097222585 Shawshank Redemption, The (1994)
+10:  26260     318    0.5 1224724866 Shawshank Redemption, The (1994)
+             genres        b_i  residual
+ 1: Musical|Romance -2.6672397  4.154762
+ 2:           Drama  0.9448401 -3.957318
+ 3:           Drama  0.9448401 -3.957318
+ 4:           Drama  0.9448401 -3.957318
+ 5:           Drama  0.9448401 -3.957318
+ 6:           Drama  0.9448401 -3.957318
+ 7:           Drama  0.9448401 -3.957318
+ 8:           Drama  0.9448401 -3.957318
+ 9:           Drama  0.9448401 -3.957318
+10:           Drama  0.9448401 -3.957318</code></pre>
+</div>
+<p>Now let’s check the 10 best movie base on our movie effect <span class="math inline">\(b_i\)</span>, without even googling these title I think it is fair to say these movies are definitely obscure, <a href="https://www.imdb.com/title/tt0197544/ratings?ref_=tt_ov_rt">“Hellhounds on My Trail”</a> is the movie effect model best rated movie, from IMDB as a reference this documentary film only has 28 ratings.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code> [1] &quot;Hellhounds on My Trail (1999)&quot;                                                   
+ [2] &quot;Who&#39;s Singin&#39; Over There? (a.k.a. Who Sings Over There) (Ko to tamo peva) (1980)&quot;
+ [3] &quot;Satan&#39;s Tango (Sátántangó) (1994)&quot;                                               
+ [4] &quot;Shadows of Forgotten Ancestors (1964)&quot;                                           
+ [5] &quot;Money (Argent, L&#39;) (1983)&quot;                                                       
+ [6] &quot;Fighting Elegy (Kenka erejii) (1966)&quot;                                            
+ [7] &quot;Sun Alley (Sonnenallee) (1999)&quot;                                                  
+ [8] &quot;Aerial, The (La Antena) (2007)&quot;                                                  
+ [9] &quot;Blue Light, The (Das Blaue Licht) (1932)&quot;                                        
+[10] &quot;More (1998)&quot;                                                                     </code></pre>
+</div>
+<p>This is the 10 worst movie, also again these titles are beyond a hipster’s taste, but I must admit that I would want to watch <a href="https://www.imdb.com/title/tt0270846/?ref_=nv_sr_srsg_0">“SuperBabies: Baby Geniuses 2”</a> and <a href="https://www.imdb.com/title/tt0245943/?ref_=fn_al_tt_1">“Da Hip Hop Witch”</a>, the former had John Volt starting and the latter had Eminem.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code> [1] &quot;Besotted (2001)&quot;                          
+ [2] &quot;Hi-Line, The (1999)&quot;                      
+ [3] &quot;Accused (Anklaget) (2005)&quot;                
+ [4] &quot;Confessions of a Superhero (2007)&quot;        
+ [5] &quot;War of the Worlds 2: The Next Wave (2008)&quot;
+ [6] &quot;SuperBabies: Baby Geniuses 2 (2004)&quot;      
+ [7] &quot;From Justin to Kelly (2003)&quot;              
+ [8] &quot;Legion of the Dead (2000)&quot;                
+ [9] &quot;Disaster Movie (2008)&quot;                    
+[10] &quot;Hip Hop Witch, Da (2000)&quot;                 </code></pre>
+</div>
+<p>So are these movies even get rated that much? From the two printed lists below, it showed that all of these movies are obscure titles most only get rated once. These predictions are untrustworthy, a large residual returns large RMSE, which is not what the model is aiming for. Hence, this is where the regularization comes in to penalized large estimates that are from small sample sizes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code> [1] 1 3 2 1 1 1 1 1 1 6</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code> [1]   1   1   1   1   2  40 168   4  28  11</code></pre>
+</div>
+<h5 id="regularization-model">1.4.2 Regularization model</h5>
+<p>How do one model regularization? Without going into too much detail of math, regularization is to minimize the variability of the effect sizes, in this case would be movie effect <span class="math inline">\(b_i\)</span> and user effect <span class="math inline">\(b_u\)</span>.</p>
+<p>The first term is the least square of movie effect + the penalty added to the movie effect.</p>
+<p><span class="math display">\[ 
+\sum_{u,i} \left(y_{u,i} - \mu - b_i\right)^2 + \lambda \sum_{i} b_i^2 
+\]</span></p>
+<p>By using calculus it can show the equation that minimize <span class="math inline">\(b_i\)</span>, <span class="math inline">\(n_i\)</span> here denotes the number of ratings per movie <span class="math inline">\(i\)</span>. When <span class="math inline">\(n_i\)</span> gets really large, the penalty <span class="math inline">\(\lambda\)</span> can be ignored because a very large <span class="math inline">\(n_i + \lambda \approx n_i\)</span>, but if <span class="math inline">\(n_i\)</span> is very small <span class="math inline">\(\hat{b}_i(\lambda)\)</span> will be reduced towards 0, becuase the larger <span class="math inline">\(\lambda\)</span> the more it reduce.</p>
+<p><span class="math display">\[
+\hat{b}_i(\lambda) = \frac{1}{\lambda + n_i} \sum_{u=1}^{n_i} \left(Y_{u,i} - \hat{\mu}\right)
+\]</span></p>
+<p>The first term is the least square of user effect + the penalty added to the user effect, <span class="math inline">\(n_u\)</span> here denotes the number of ratings per user <span class="math inline">\(u\)</span>. The following equation are the same as above beside adding user effect.</p>
+<p><span class="math display">\[ 
+\sum_{u,i} \left(y_{u,i} - \mu - b_i - b_u\right)^2 + \lambda \sum_{u} b_u^2 
+\]</span></p>
+<p><span class="math display">\[
+\hat{b}_u(\lambda) = \frac{1}{\lambda + n_u} \sum_{i=1}^{n_u} \left(Y_{u,i} - \hat{\mu} - \hat{b_i}\right)
+\]</span></p>
+<h5 id="result-1">1.4.3 Result</h5>
+<p>After the above explaination, it is ready to test the linear model with regularization.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lambdas</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>10</span>, <span class='fl'>0.25</span><span class='op'>)</span>
+
+<span class='va'>regular</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>lambdas</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>l</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>train_data</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+  <span class='va'>b_i</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>b_u</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by<span class='op'>=</span><span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>b_i</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> 
+    <span class='va'>test_data</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_u</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>predicted_ratings</span>, <span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+
+<span class='fu'>tibble</span><span class='op'>(</span>l <span class='op'>=</span> <span class='va'>lambdas</span>, rmses <span class='op'>=</span> <span class='va'>regular</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>l</span>, y <span class='op'>=</span> <span class='va'>rmses</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="movielens_files/figure-html5/unnamed-chunk-16-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>l</span> <span class='op'>&lt;-</span> <span class='va'>lambdas</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.min</a></span><span class='op'>(</span><span class='va'>regular</span><span class='op'>)</span><span class='op'>]</span>
+
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>train_data</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+<span class='va'>b_i</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>b_u</span> <span class='op'>&lt;-</span> <span class='va'>train_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by<span class='op'>=</span><span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>b_i</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> 
+  <span class='va'>test_data</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_u</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>rmse</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>rmse</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Regularization"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>rmse</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.059904
+2       Base + b_i 0.943743
+3 Base + b_i + b_u 0.865932
+4   Regularization 0.865242</code></pre>
+</div>
+<h4 id="matrix-factorization">1.5 Matrix Factorization</h4>
+<p>Matrix factorization (MF) is widely use in tackling recommender system problem when predicting unobserved rating based on the observed rating. The basic idea is to reduce the rating matrix <span class="math inline">\(R_{m\times n}\)</span> to user matrix <span class="math inline">\(P_{k\times m}\)</span> and movie <span class="math inline">\(Q_{k\times n}\)</span> so that <span class="math inline">\(R \approx P \times Q\)</span>. From the 4x4 matrix below shows a simple example of what MF transform the original data. From more detail mathematical explaination please check <a href="https://cran.r-project.org/web/packages/recosystem/vignettes/introduction.html">recosystem</a> and <a href="https://www.csie.ntu.edu.tw/~cjlin/papers/libmf/libmf_supp.pdf">Supplementary Materials for “LIBMF”</a>, as this project is intend to focus on the appling techniques of machine learning.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>       movie.1 movie.2 movie.3 movie.4
+user.1       1       1       4      NA
+user.2       1      NA       5       2
+user.3       1       3      NA       3
+user.4       1      NA       3       4</code></pre>
+</div>
+<p>Here, I use <a href="https://cran.r-project.org/web/packages/recosystem/index.html">recosystem package</a> to utilize the power of multilcore CPUs for computing speed.</p>
+<p>The <a href="https://cran.r-project.org/web/packages/recosystem/vignettes/introduction.html">recosystem</a> prove a step by step guide: 1. Transform your train and test data with data_memory() 2. Create a model object with Reco() 3. Tuning the parameters with $tune() 4. Train model with $train 5. Predict with $predict</p>
+<p>Doing the MF process will take quite a bit time from my laptop takes about 30 to 50 minutes, from the rmse table MF method significantly reduce RMSE to 0.7859012 which is about 9% reduce from the regularization model and it also reach our target RMSE &lt; 0.8649.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/yixuan/recosystem'>recosystem</a></span><span class='op'>)</span>
+<span class='co'># transform train data</span>
+<span class='va'>train_reco</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>train_data</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/data_source.html'>data_memory</a></span><span class='op'>(</span>user_index <span class='op'>=</span> <span class='va'>userId</span>,
+                                    item_index <span class='op'>=</span> <span class='va'>movieId</span>,
+                                    rating <span class='op'>=</span> <span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># transform test data</span>
+<span class='va'>test_reco</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>test_data</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/data_source.html'>data_memory</a></span><span class='op'>(</span>user_index <span class='op'>=</span> <span class='va'>userId</span>,
+                                          item_index <span class='op'>=</span> <span class='va'>movieId</span>,
+                                          rating <span class='op'>=</span> <span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='co'># create model object </span>
+<span class='va'>r</span> <span class='op'>&lt;-</span>  <span class='fu'>recosystem</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/Reco.html'>Reco</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='co'># tuning parameter </span>
+<span class='va'>opts</span> <span class='op'>&lt;-</span> <span class='va'>r</span><span class='op'>$</span><span class='fu'>tune</span><span class='op'>(</span><span class='va'>train_reco</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>30</span><span class='op'>)</span>, 
+                                       lrate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.2</span><span class='op'>)</span>,
+                                       costp_l2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.01</span>, <span class='fl'>0.1</span><span class='op'>)</span>, 
+                                       costq_l2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.01</span>, <span class='fl'>0.1</span><span class='op'>)</span>,
+                                       nthread  <span class='op'>=</span> <span class='fl'>4</span>, niter <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># training model </span>
+<span class='va'>r</span><span class='op'>$</span><span class='fu'>train</span><span class='op'>(</span><span class='va'>train_reco</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>opts</span><span class='op'>$</span><span class='va'>min</span>, nthread <span class='op'>=</span> <span class='fl'>4</span>, niter <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>iter      tr_rmse          obj
+   0       0.9952   1.0048e+07
+   1       0.8787   8.0745e+06
+   2       0.8474   7.5113e+06
+   3       0.8262   7.1654e+06
+   4       0.8088   6.9086e+06
+   5       0.7953   6.7279e+06
+   6       0.7842   6.5845e+06
+   7       0.7747   6.4728e+06
+   8       0.7664   6.3784e+06
+   9       0.7592   6.2986e+06
+  10       0.7529   6.2306e+06
+  11       0.7473   6.1725e+06
+  12       0.7423   6.1270e+06
+  13       0.7379   6.0826e+06
+  14       0.7338   6.0457e+06
+  15       0.7299   6.0102e+06
+  16       0.7266   5.9802e+06
+  17       0.7234   5.9508e+06
+  18       0.7206   5.9270e+06
+  19       0.7179   5.9030e+06</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># testing model </span>
+<span class='va'>y_hat_reco</span> <span class='op'>&lt;-</span>  <span class='va'>r</span><span class='op'>$</span><span class='fu'>predict</span><span class='op'>(</span><span class='va'>test_reco</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/output_format.html'>out_memory</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># RMSE</span>
+<span class='va'>rmse</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>rmse</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"MF"</span>, RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>test_data</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>y_hat_reco</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>rmse</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.059904
+2       Base + b_i 0.943743
+3 Base + b_i + b_u 0.865932
+4   Regularization 0.865242
+5               MF 0.790857</code></pre>
+</div>
+<h2 id="validation-set">Validation set</h2>
+<p>In the predictions above are all using the 20% of edx as testing data, I done training the model, it is ready to employ on validation set. From the RMSE reports from each method below, besides base model and base model + <span class="math inline">\(b_i\)</span> are performing slightly worst than the test_data, all other models performs better and are able to reach the target RMSE 0.7826 &lt; 0.8649.</p>
+<h4 id="linear-model">1. Linear model</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># First Model: Overall average rating </span>
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>edx</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+<span class='va'>valid</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base Model"</span>, 
+               RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>mu</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>valid</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>      Method   RMSE
+1 Base Model 1.0612</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Second model: movie effect </span>
+<span class='va'>movie_avgs</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> <span class='va'>validation</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span><span class='va'>b_i</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+
+<span class='va'>valid</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>valid</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base + b_i"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>valid</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>      Method     RMSE
+1 Base Model 1.061202
+2 Base + b_i 0.943909</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Third model: user effect </span>
+<span class='va'>user_avgs</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span> <span class='op'>-</span> <span class='va'>b_i</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> <span class='va'>validation</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>movie_avgs</span>, by<span class='op'>=</span><span class='st'>'movieId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>user_avgs</span>, by<span class='op'>=</span><span class='st'>'userId'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+
+<span class='va'>valid</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>valid</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Base + b_i + b_u"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>valid</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.061202
+2       Base + b_i 0.943909
+3 Base + b_i + b_u 0.865349</code></pre>
+</div>
+<h4 id="regularization-1">2. Regularization</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lambdas</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>10</span>, <span class='fl'>0.25</span><span class='op'>)</span>
+
+<span class='va'>regular</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>lambdas</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>l</span><span class='op'>)</span><span class='op'>{</span>
+  <span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>edx</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+  <span class='va'>b_i</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>b_u</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by<span class='op'>=</span><span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>b_i</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> 
+    <span class='va'>validation</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_u</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+  <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span><span class='op'>)</span>
+
+<span class='fu'>tibble</span><span class='op'>(</span>l <span class='op'>=</span> <span class='va'>lambdas</span>, rmses <span class='op'>=</span> <span class='va'>regular</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>l</span>, y <span class='op'>=</span> <span class='va'>rmses</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="movielens_files/figure-html5/unnamed-chunk-19-1.png" width="624" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>l</span> <span class='op'>&lt;-</span> <span class='va'>lambdas</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/which.min.html'>which.min</a></span><span class='op'>(</span><span class='va'>regular</span><span class='op'>)</span><span class='op'>]</span>
+
+<span class='va'>mu</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>edx</span><span class='op'>$</span><span class='va'>rating</span><span class='op'>)</span>
+<span class='va'>b_i</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>movieId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_i <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>b_u</span> <span class='op'>&lt;-</span> <span class='va'>edx</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by<span class='op'>=</span><span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>userId</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarize</span><span class='op'>(</span>b_u <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>rating</span> <span class='op'>-</span> <span class='va'>b_i</span> <span class='op'>-</span> <span class='va'>mu</span><span class='op'>)</span><span class='op'>/</span><span class='op'>(</span><span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span><span class='va'>l</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>predicted_ratings</span> <span class='op'>&lt;-</span> 
+  <span class='va'>validation</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_i</span>, by <span class='op'>=</span> <span class='st'>"movieId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>left_join</span><span class='op'>(</span><span class='va'>b_u</span>, by <span class='op'>=</span> <span class='st'>"userId"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>pred <span class='op'>=</span> <span class='va'>mu</span> <span class='op'>+</span> <span class='va'>b_i</span> <span class='op'>+</span> <span class='va'>b_u</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>pull</span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>valid</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>valid</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"Regularization"</span>, 
+                         RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>predicted_ratings</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>valid</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.061202
+2       Base + b_i 0.943909
+3 Base + b_i + b_u 0.865349
+4   Regularization 0.864817</code></pre>
+</div>
+<h4 id="matrix-factorization-1">3. Matrix Factorization</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># transform train data</span>
+<span class='va'>train_edx</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>edx</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/data_source.html'>data_memory</a></span><span class='op'>(</span>user_index <span class='op'>=</span> <span class='va'>userId</span>,
+                                    item_index <span class='op'>=</span> <span class='va'>movieId</span>,
+                                    rating <span class='op'>=</span> <span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># transform test data</span>
+<span class='va'>test_vali</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='va'>validation</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/data_source.html'>data_memory</a></span><span class='op'>(</span>user_index <span class='op'>=</span> <span class='va'>userId</span>,
+                                          item_index <span class='op'>=</span> <span class='va'>movieId</span>,
+                                          rating <span class='op'>=</span> <span class='va'>rating</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='co'># create model object </span>
+<span class='va'>r</span> <span class='op'>&lt;-</span>  <span class='fu'>recosystem</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/Reco.html'>Reco</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='co'># tuning parameter </span>
+<span class='va'>opts</span> <span class='op'>&lt;-</span> <span class='va'>r</span><span class='op'>$</span><span class='fu'>tune</span><span class='op'>(</span><span class='va'>train_edx</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>dim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>10</span>, <span class='fl'>20</span>, <span class='fl'>30</span><span class='op'>)</span>, 
+                                       lrate <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.1</span>, <span class='fl'>0.2</span><span class='op'>)</span>,
+                                       costp_l2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.01</span>, <span class='fl'>0.1</span><span class='op'>)</span>, 
+                                       costq_l2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.01</span>, <span class='fl'>0.1</span><span class='op'>)</span>,
+                                       nthread  <span class='op'>=</span> <span class='fl'>4</span>, niter <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># training model </span>
+<span class='va'>r</span><span class='op'>$</span><span class='fu'>train</span><span class='op'>(</span><span class='va'>train_edx</span>, opts <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>opts</span><span class='op'>$</span><span class='va'>min</span>, nthread <span class='op'>=</span> <span class='fl'>4</span>, niter <span class='op'>=</span> <span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>iter      tr_rmse          obj
+   0       0.9741   1.2022e+07
+   1       0.8732   9.8861e+06
+   2       0.8407   9.1956e+06
+   3       0.8175   8.7638e+06
+   4       0.8008   8.4680e+06
+   5       0.7883   8.2641e+06
+   6       0.7783   8.1086e+06
+   7       0.7700   7.9870e+06
+   8       0.7631   7.8901e+06
+   9       0.7573   7.8125e+06
+  10       0.7522   7.7451e+06
+  11       0.7477   7.6867e+06
+  12       0.7437   7.6379e+06
+  13       0.7401   7.5968e+06
+  14       0.7368   7.5580e+06
+  15       0.7338   7.5264e+06
+  16       0.7310   7.4960e+06
+  17       0.7285   7.4678e+06
+  18       0.7262   7.4451e+06
+  19       0.7239   7.4222e+06</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># testing model </span>
+<span class='va'>y_hat_edx</span> <span class='op'>&lt;-</span>  <span class='va'>r</span><span class='op'>$</span><span class='fu'>predict</span><span class='op'>(</span><span class='va'>test_vali</span>, <span class='fu'><a href='https://rdrr.io/pkg/recosystem/man/output_format.html'>out_memory</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'># RMSE</span>
+<span class='va'>valid</span> <span class='op'>&lt;-</span> <span class='fu'>bind_rows</span><span class='op'>(</span><span class='va'>valid</span>, 
+                  <span class='fu'>tibble</span><span class='op'>(</span>Method <span class='op'>=</span> <span class='st'>"MF"</span>, RMSE <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/postResample.html'>RMSE</a></span><span class='op'>(</span><span class='va'>validation</span><span class='op'>$</span><span class='va'>rating</span>, <span class='va'>y_hat_edx</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.dataframe.html'>print.data.frame</a></span><span class='op'>(</span><span class='va'>valid</span>, digits <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            Method     RMSE
+1       Base Model 1.061202
+2       Base + b_i 0.943909
+3 Base + b_i + b_u 0.865349
+4   Regularization 0.864817
+5               MF 0.782457</code></pre>
+</div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The initial base model is the mean of all movie ratings, a rather simple approach without catching other variabilities and effects in movies and users, which RMSE is about 1.061. Once I added movie and user effect, the RMSE is reduced to 0.8653, with regularization I added penalty term for both movie and user effect the RMSE is reduced to 0.8648. By using regularization the RMSE reaches the initial target, RMSE &lt; 0.8649, but to further improve the model I employed matrix factorization with recosystem, this method reduced RMSE massively to 0.7826.</p>
+<p>Matrix Factorization comes with a cost that it needs a machine equipped with strong computational CPUs and memories to run, considering the movielens dataset in this project only has about 10 million observations and it took about 30 minutes to process let alone a dataset that is much larger. Also, my model only have two features, where as the model implemented by Netflix or Amazon have a lot more features to predict user’s preferences, such as movie actors, genres, groups, etc.</p>
+<p>Since this a project about applying machine learning techniques, I did not get in depth into the mathematic behind regularization and matrix factorization. In addition, I did not touch on two other commonly used filtering systems, content based and collaborative filtering. Do check out <a href="https://github.com/mhahsler/recommenderlab">recommendarlab</a>, and <a href="https://en.wikipedia.org/wiki/Recommender_system">recommender system on wikipedia</a> for further studies.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Rafael A. Irizarry. (2019), <a href="https://rafalab.github.io/dsbook">Introduction to Data Science</a></li>
+<li>Yixuan Qiu. (2017), <a href="https://cran.r-project.org/web/packages/recosystem/vignettes/introduction.html">recosystem</a></li>
+<li>Michael Hahsler. (2019), <a href="https://github.com/mhahsler/recommendationlab">recommendationlab</a></li>
+<li>Chin, Yuan, et al. (2015), <a href="https://www.csie.ntu.edu.tw/~cjlin/papers/libmf/libmf_supp.pdf">Supplementary Materials for “LIBMF”</a></li>
+<li>Boehmke, Greenwell. (2020), <a href="https://bradleyboehmke.github.io/HOML/">Hands-On Machine Learning with R</a></li>
+<li>Xie, Allaire, Grolemund (2020), <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
