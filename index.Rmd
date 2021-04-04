@@ -3,3 +3,108 @@ title: ""
 site: distill::distill_website
 listing: posts
 ---
+```{r, echo=FALSE, fig.height=10, fig.width=10}
+library(tidyverse)
+library(scico)
+library(ambient)
+library(here)
+
+# parameters 
+art_par <- list(
+  seed = 2,
+  n_path = 500,
+  n_steps = 500,
+  sz_step = 300,
+  sz_slip = 300, # creating extra dimension 
+  pal_name = "devon"
+)
+
+# setting up the canvas 
+set.seed(seed = art_par$seed)
+
+state <- tibble(
+  x = runif(n = art_par$n_path, 0, 2),
+  y = runif(n = art_par$n_path, 0, 2),
+  z = 0
+)
+#-------------------------------------
+# include path & step id 
+state <- state %>% 
+  mutate(
+    path_id = 1:art_par$n_path, 
+    step_id = 1
+  )
+
+# keep track of the series of state 
+art_dat <- state 
+
+# write a loop 
+# stop_paint <-  FALSE
+# 
+# while(stop_paint== FALSE) {
+#   # do something 
+#   
+#   state <- state %>%
+#     mutate(
+#       x = x + .1, 
+#       step_id = step_id + 1
+#     )
+#   
+#   current_step <- last(state$step_id)
+#   print(current_step)
+#   if(current_step >= art_par$n_steps) {
+#     stop_paint <- TRUE
+#   }
+# }
+
+#--------------------------------------
+stop_paint <-  FALSE
+
+while(stop_paint== FALSE) {
+  # make a step, using ambient package 
+  step <- curl_noise(
+    generator = gen_simplex,
+    x = state$x,
+    y = state$y,
+    z = state$z,
+    seed = c(1,1,1) * art_par$seed
+  )
+  
+  state <- state %>%
+    mutate(
+      x = x + (step$x / 10000) * art_par$sz_step, 
+      y = y + (step$y / 10000) * art_par$sz_step, 
+      z = z + (step$z / 10000) * art_par$sz_slip, # creating extra dimension
+      step_id = step_id + 1
+    )
+  # appen the state to art_dat
+  art_dat <- bind_rows(art_dat, state)
+  
+  # check if we should stop
+  current_step <- last(state$step_id)
+  if(current_step >= art_par$n_steps) {
+    stop_paint <- TRUE
+  }
+}
+
+
+# draw the pic ------------------------------------------------------------
+
+ggplot(
+  data = art_dat,
+  mapping = aes(
+    x = x, 
+    y = y, 
+    group = path_id,
+    color = step_id)
+) + 
+  geom_path(
+    size = .5,
+    alpha = .5,
+    show.legend = FALSE #not showing legend
+  ) + 
+  coord_equal() +
+  theme_void() + 
+  scale_color_scico(palette = art_par$pal_name) #sico package # scico_palette_show()
+
+```
